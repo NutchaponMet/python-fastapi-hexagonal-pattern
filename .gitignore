@@ -1,0 +1,10 @@
+**/Pipfile*
+**/__pycache__
+**/.env
+**/.dockerignore
+**/docker-compose*
+**/compose.y*ml
+**/Dockerfile*
+**/.vs
+**/.vscode
+**/.venv
