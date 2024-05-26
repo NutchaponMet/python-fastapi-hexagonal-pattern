@@ -6,7 +6,6 @@ from abc import (
     ABC,
     abstractmethod
 )
-from sqlalchemy.orm import Session
 from repositories import user
 
 ################################################################################################################################
@@ -29,9 +28,10 @@ class UserService(ABC):
 ## Adapter
 ################################################################################################################################
 ################################################################################################################################
+
 class __Userservice(UserService):
-    def __init__(self, session: Session) -> None:
-        self.userRepo = user.NewUserRepositoryDB(session)
+    def __init__(self, userRepo: user.UserRepository) -> None:
+        self.userRepo = userRepo
     
     async def get_users(self):
         data = await self.userRepo.get_all()
@@ -41,5 +41,5 @@ class __Userservice(UserService):
         data = await self.userRepo.get_by_id(id)
         return data
 
-def UerService(session: Session) -> UserService:
-    return __Userservice(session=session)
+def NewUerService(userRepo: user.UserRepository) -> UserService:
+    return __Userservice(userRepo)

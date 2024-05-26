@@ -3,14 +3,6 @@ from pydantic import (
     Field
 )
 
-class UserSchema(BaseModel):
+class UserReq(BaseModel):
     username: str
     password: str
-    
-class UserResp(UserSchema):
-    pass
-
-class UserReq(UserSchema):
-    firstname: str
-    email: str
-    
