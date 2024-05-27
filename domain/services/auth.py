@@ -2,8 +2,7 @@ from abc import (
     ABC,
     abstractmethod
 )
-from datetime import datetime, timedelta
-import bcrypt
+from datetime import timedelta
 from repositories import user
 from domain.schemas.token import Token
 from domain import util
